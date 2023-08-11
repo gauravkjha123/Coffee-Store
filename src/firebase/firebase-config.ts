@@ -1,0 +1,13 @@
+import * as admin from 'firebase-admin';
+
+admin.initializeApp({
+  credential: admin.credential.cert({
+    projectId: 'coffe-store-8dae3',
+    privateKey:
+      '-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDCZV89O0NM4Ntu\n1VNbawuTLd6b7NToQlw0Md+PMimszhtcUBP4SaNtfQCtxnaifMmhi0Q4/3Lv0jRr\nnRxN62inYv2+13tpQJVc8UxXgHxnyoW35sYkPhD15y2X03lq69VgO+P7YAlzrIZL\nbJGkzTLcOV1YMxzzgZu45PknH+fA+DVoPnAqFRN9TuAnCcaZnBq6BRNB6hYcq3r+\nAb56BA28NEvAnMKprPvv2iB5Dua3JZjlrePfXjCti96guZeLhhYZVzT2UScJHZ/d\nvu1xvmwT4t5EJbCac+/5Yz2wGgwKk6EnqK761RNLKqSK087Rcky34evNgZdxYWgz\nJDOzUl75AgMBAAECggEAJbtIY5mro/HnFZmpbs6VthEKqsgqwRQUUns1sdUiOqzc\nqavPXHtqkbdYGOKzJzHCby0ZZljKxdrOmu6pTkR5kTfJGbA4f4LuGtapIzjIrNql\n3r6XyfQUFa6z7kq5P/Qbe+zUAPgwjXe4r04Y7Nx5WT53LEXrgiYvhBFJfPsX4B/W\nYI1z/clB8Y7AW00zpHPhVbwG/jmsbcAUbZHJq/ctm3XpU4wboORzNIn1gMfT7C+M\nbJ5cuQb0G6J2nd5u44aV35yxqTlNVK+kk9agvuH0CL4rATiqa/ShmaX3TEbDETlX\n/iZ6fse33fWT84dVLrk7H6djZjEHV3Q41GgRgbmVyQKBgQDwqGzu+p3q5c0LEeNm\ncmLbAgL3n+tU+8ZrMSdmRlRjm3u7+dkKhV12+oHBcOvMyF1PSyGh8IIKScBSnEue\n2e1W1ctWdqVpY3r3qwobo+mHDTEfGLA9Agc8LNAvuje+UCcN2UNc+LN8DziXh5/G\nW49iNOaVSxJC8VLLXeDsfTxtZQKBgQDOyfHVpSvqqS7b1V9kDep+d1lyIo9woUrF\nFUnaLyQWEMBaspSaaDscVCkqzXdSAC5W0ozLRz7R8Y3b2LJr49lruyhtENpzJ5Ks\nJyuqf+x7mPBHuuqYpKEd5Hi2RWBjzj0tO30qYINddjfyXWhncwfHLz3PSb6Fcc6r\neK4Ib32MBQKBgENHsvy00AVlrYdUvvBbNkvoKhA0g0RFB1ncahlrvBgE1fjdhtIs\nKs8ihbgg66tasMuEQ6jUZmad68isrW+BmZrXNnu7u87U4wHurWrAzn7VL1B0RIEp\n2f/2v1U4iHEKU4DJps2NMhCS6M1kO0TnQBTCmVxPmpFgijcUzdcPxB8JAoGALeTR\n4FmtGoJ73NxJNHqGLZUta9BRx2x0nLLx1hOaTa9gEYEKzA4P+GSRUmeRcMiLgEdw\nafkg7xVOJ5m7V4iVC3zZJwOTh/Ujb0OuREPp5zB1O2Y3hLMc8vZu9/0DvILcPvqx\n98K9xPNkzUx/zF3SPxmz/Rpfx1wPwyyga0zbL0UCgYAuPJ2tDoXdocwsXf5PiYY7\nPye6hyWkESP6pJ3zztMsN7p1+h9/4KHWnSv7ImJs8qTRAL7Kw+o2uVxK7qLlJzd7\ne6/T91G9w0Ym8hzoe3SLPbutC97JLKYQpEZwsljN3qMYI3VZayT6UuRE5Qv5TDQ5\n8fAz/yF4cJFpfhXR4zHSFA==\n-----END PRIVATE KEY-----\n',
+    clientEmail: 'gkjha1112@gmail.com',
+  }),
+  databaseURL: 'https://coffe-store-8dae3.firebaseio.com/',
+});
+const firebaseAdmin = admin;
+export default firebaseAdmin;
