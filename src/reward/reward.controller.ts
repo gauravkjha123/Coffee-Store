@@ -22,8 +22,6 @@ import JwtAuthenticationGuard from '../authentication/jwt-authentication.guard';
 import LocalFilesInterceptor from '../localFiles/localFiles.interceptor';
 import FileUploadDto from './dto/fileUpload.dto';
 import RequestWithUser from '../authentication/requestWithUser.interface';
-import BuyRewardDto from './dto/buyReward.dto';
-import ApplyRewardDto from './dto/applyReward.dto';
 
 @Controller('reward')
 @UseInterceptors(ClassSerializerInterceptor)
@@ -41,25 +39,13 @@ export default class RewardController {
   @UseGuards(JwtAuthenticationGuard)
   getProductById(@Param() { id }: FindOneParams,@Req() request: RequestWithUser) {
     const { user } = request;
-    return this.rewardService.getRewardById(Number(id),user.id);
+    return this.rewardService.getRewardByIdWithCheck(Number(id),user.id);
   }
 
   @Post()
   @UseGuards(JwtAuthenticationGuard)
   async createProduct(@Body() reward: CreateRewardDto) {
     return this.rewardService.createReward(reward);
-  }
-
-  @Post('buy-reward')
-  @UseGuards(JwtAuthenticationGuard)
-  async buyReward(@Body() buyRewardBody: BuyRewardDto) {
-    return this.rewardService.buyReward(buyRewardBody);
-  }
-
-  @Post('apply-reward')
-  @UseGuards(JwtAuthenticationGuard)
-  async applyReward(@Body() applyRewardBody: ApplyRewardDto) {
-    return this.rewardService.applyReward(applyRewardBody);
   }
 
   @Post('reward-image')
@@ -97,11 +83,11 @@ export default class RewardController {
 
   @Patch(':id')
   @UseGuards(JwtAuthenticationGuard)
-  async updateProduct(
+  async updateReward(
     @Param() { id }: FindOneParams,
     @Body() reward: UpdateRewardtDto,
   ) {
-    return this.rewardService.updateProduct(Number(id), reward);
+    return this.rewardService.updateReward(Number(id), reward);
   }
 
   @Delete(':id')

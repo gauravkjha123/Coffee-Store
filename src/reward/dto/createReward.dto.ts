@@ -13,6 +13,9 @@ export class CreateRewardDto {
 
   @IsNumber()
   discount: number;
+  
+  @IsNumber()
+  expiryDay:number
 }
 
 export default CreateRewardDto;
