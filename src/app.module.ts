@@ -6,7 +6,7 @@ import { EmailConfirmationModule } from './emailConfirmation/emailConfirmation.m
 import { ConfigModule } from '@nestjs/config';
 import { LoggerModule } from './logger/logger.module';
 import HealthModule from './health/health.module';
-import { FireBaseModule } from './firebase/firebase.module';
+// import { FireBaseModule } from './firebase/firebase.module';
 import { LocalFilesModule } from './localFiles/localFiles.module';
 import { CategoriesModule } from './categories/categories.module';
 import { ProductModule } from './product/product.module';
@@ -18,12 +18,13 @@ import { OrderModule } from './order/order.module';
 import { OrderedProductModule } from './orderedProduct/orderedProduct.module';
 import { PointManagementModule } from './pointManagement/pointManagement.module';
 import { RewardModule } from './reward/reward.module';
+import { RewardManagementModule } from './rewardManagement/rewardManagement.module';
 
 @Module({
   imports: [
     DatabaseModule,
     UsersModule,
-    FireBaseModule,
+    // FireBaseModule,
     AuthenticationModule,
     ConfigModule.forRoot(),
     EmailConfirmationModule,
@@ -39,7 +40,8 @@ import { RewardModule } from './reward/reward.module';
     OrderModule,
     OrderedProductModule,
     PointManagementModule,
-    RewardModule
+    RewardModule,
+    RewardManagementModule
   ],
   controllers: [],
   providers: [],
