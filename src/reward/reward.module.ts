@@ -12,5 +12,6 @@ import { PointManagementModule } from '../pointManagement/pointManagement.module
   imports: [TypeOrmModule.forFeature([Reward]), ConfigModule, LocalFilesModule,UsersModule,UsersModule,PointManagementModule],
   controllers: [RewardController],
   providers: [RewardService],
+  exports:[RewardService]
 })
 export class RewardModule {}

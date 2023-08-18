@@ -9,10 +9,11 @@ export class UpdateRewardtDto {
   description?: string;
 
   @IsNumber()
-  point: number;
+  discount: number;
 
   @IsNumber()
-  discount: number;
+  expiryDay:number
+
 }
 
 export default UpdateRewardtDto;

@@ -4,11 +4,13 @@ import {
   JoinColumn,
   OneToOne,
   PrimaryGeneratedColumn,
+  OneToMany
 } from 'typeorm';
 import { Exclude } from 'class-transformer';
 import LocalFile from '../localFiles/localFile.entity';
 import Cart from '../cart/cart.entity';
 import { Role } from './role/role.enum';
+import RewardManagement from '../rewardManagement/rewardManagement.entity';
 
 @Entity()
 class User {
@@ -40,8 +42,8 @@ class User {
   })
   public role: Role;
 
-  @Column({ nullable: true})
-  public rewardId: number;
+  @OneToMany(() => RewardManagement, (rewardManagement) => rewardManagement.reward)
+  rewardManagement: RewardManagement[]
 
   @Column({ nullable: true })
   @Exclude()

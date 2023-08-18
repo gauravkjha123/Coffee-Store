@@ -5,8 +5,11 @@ import {
   CreateDateColumn,
   JoinColumn,
   OneToOne,
+  ManyToMany,
+  OneToMany,
 } from 'typeorm';
 import LocalFile from '../localFiles/localFile.entity';
+import RewardManagement from '../rewardManagement/rewardManagement.entity';
 
 @Entity()
 class Reward {
@@ -33,6 +36,12 @@ class Reward {
 
   @Column({nullable:true})
   public rewardImageId: number;
+
+  @OneToMany(() => RewardManagement, (rewardManagement) => rewardManagement.reward)
+  rewardManagement: RewardManagement[]
+
+  @Column({nullable:false,default:0})
+  public expiryDay: number;
 
   @CreateDateColumn({ type: 'timestamp' })
   createdAt: Date;

@@ -30,7 +30,8 @@ export class UsersService {
       where: { id: In(ids) },
       relations:{
         cart:true,
-        avatar:true
+        avatar:true,
+
       }
     });
   }
@@ -39,7 +40,7 @@ export class UsersService {
     const user = await this.usersRepository.findOne({where:{id:id}, 
       relations:{
       cart:true,
-      avatar:true
+      avatar:true,
     } });
     if (user) {
       return user;
@@ -53,9 +54,10 @@ export class UsersService {
   async create(userData: CreateUserDto) {
     const user = await this.usersRepository.findOne({where:{email:userData.email}, 
       relations:{
-      cart:true,
-      avatar:true
-    } });
+        cart:true,
+        avatar:true,
+
+      } });
     if (user) {
       throw new HttpException(
         'User with this email already exist',
@@ -95,14 +97,6 @@ export class UsersService {
     );
   }
 
-async setReward(id:number,rewardId) {
-    await this.usersRepository.update(
-      { id },
-      {
-        rewardId,
-      },
-    );
-  }
   async updatePoints(id:number,points:number) {
     await this.usersRepository.update(
       { id },
@@ -157,7 +151,12 @@ async setReward(id:number,rewardId) {
   }
 
   async getUserById(userId: number) {
-    let user= this.usersRepository.findOne({where:{id:userId}});
+    let user= this.usersRepository.findOne({
+    where:{id:userId,}  ,
+      relations:{
+      cart:true,
+      avatar:true,
+    }});
     if (!user) {
       throw new HttpException(
         'User does not exist',
